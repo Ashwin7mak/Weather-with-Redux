@@ -8,6 +8,7 @@ export function fetchWeather(city) {
 	const url = ROOT_URL.replace(/:city/, city)
 	const request = axios.get(url);
 
+	// console.log(request.query.results.channel);
 	return {
 		type: FETCH_WEATHER,
 		payload: request
