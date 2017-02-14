@@ -7,6 +7,8 @@ Welcome to Weather with Redux!
 ###Technology Stack###
 ReactJS
 Redux
+ES6
+Redux Promise (as Middleware)
 Bootstrap
 
 
@@ -26,3 +28,4 @@ Controlled Component(Button) - a form element where the value of the input is se
 This and Callback Functions - whenever we hand a callback function like 'this' off and then the callback reference is 'this'. 
 'This' is going to have the incorrect context. The dilemma can be solved by binding it to the constext in the constructor function. Please reference the search bar component.
 
+Middleware - has the ability to block, modify, or just let an action pass through as the action is created before the action hits the reducer.
