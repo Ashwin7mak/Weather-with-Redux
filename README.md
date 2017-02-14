@@ -20,3 +20,6 @@ Checkout this repo, install dependencies, then start the gulp process with the f
 	> npm start
 ```
 
+####Concepts Notes#####
+Controlled Component(Button) - a form element where the value of the input is set by the state of our component.
+
