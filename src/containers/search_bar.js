@@ -28,7 +28,7 @@ export default class SearchBar extends Component {
 		return (
 			<form onSubmit={this.onFormSubmit} className="input-group">
 				<input 
-					placeholder="Get a 10-Day Forecast by Searching for Your City"
+					placeholder="Example: san francisco, ca"
 					className="form-control"
 					value={this.state.term}
 					onChange={this.onInputChange}
