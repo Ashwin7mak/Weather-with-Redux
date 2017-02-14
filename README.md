@@ -4,6 +4,12 @@
 
 Welcome to Weather with Redux!
 
+###Technology Stack###
+ReactJS
+Redux
+Bootstrap
+
+
 ####Familiar with Git?#####
 Checkout this repo, install dependencies, then start the gulp process with the following:
 
