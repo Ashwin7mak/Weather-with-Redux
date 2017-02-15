@@ -1,39 +1,76 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import {GridList, GridTile} from 'material-ui/GridList';
+import IconButton from 'material-ui/IconButton';
+import Subheader from 'material-ui/Subheader';
+import StarBorder from 'material-ui/svg-icons/toggle/star-border';
+
+const styles = {
+  root: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around',
+  },
+  gridList: {
+    width: 650,
+    height: 500,
+    overflowY: 'auto',
+  },
+};
 
 class WeatherList extends Component {
 	renderWeather(cityData) {
 		const name = cityData.query.results.channel.location.city;
+		const forecast = cityData.query.results.channel.item.forecast;
 
-		const dates = cityData.query.results.channel.item.forecast.map(weather => weather.date);
-		const lowTemps = cityData.query.results.channel.item.forecast.map(weather => weather.low);
-		const highTemps = cityData.query.results.channel.item.forecast.map(weather => weather.high);
-		const descriptions = cityData.query.results.channel.item.forecast.map(weather => weather.text);
-
+		forecast.map((day) => {
+			if (day.text.includes("Cloudy")) {
+  			day["image"] = 'http://icons.iconarchive.com/icons/large-icons/large-weather/512/partly-cloudy-day-icon.png';
+  		} else if (day.text === "Showers") {
+				day["image"] = 'http://icons.iconarchive.com/icons/large-icons/large-weather/512/partly-cloudy-day-icon.png';
+  		} else {
+				day["image"] = 'http://www.vectorcopy.com/images/big/1-5000/80.jpg';
+  		}
+		});
 		
-		console.log(descriptions);
+		console.log(forecast);
 
 		return (
-			<tr key={name}>
-				<td>{name}</td>
-			</tr>
+			<div key={name}>
+				<h1>{name}</h1>
+				<div style={styles.root}>
+			    <GridList
+			      cellHeight={180}
+			      style={styles.gridList}
+			    >
+			      <Subheader>10 Day Forecast</Subheader>
+			      {forecast.map((tile) => (
+			      	
+
+			        <GridTile
+			          key={tile.date}
+			          title={
+			          	<span>{tile.date} - <b>{tile.text}</b></span>
+			          }
+			          subtitle={
+			          	<span>High <b>{tile.high}</b> Low <b>{tile.low}</b></span>
+			          }
+			          actionIcon={<IconButton><StarBorder color="white" /></IconButton>}
+			        >
+			          <img src={tile.image} />
+			        </GridTile>
+			      ))}
+			    </GridList>
+			  </div>
+			</div>
 		);
 	}
 
 	render() {
 		return (
-			<table className="table table-hover">
-				<thead>
-					<tr>
-						<th>City</th>
-						<th>Low Temperature</th>
-						<th>High Temperature</th>
-					</tr>
-				</thead>
-				<tbody>
-					{this.props.weather.map(this.renderWeather)}
-				</tbody>
-			</table>
+			<div>
+				{this.props.weather.map(this.renderWeather)}
+			</div>
 		);
 	}
 }
