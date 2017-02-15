@@ -24,20 +24,22 @@ class WeatherList extends Component {
 		const forecast = cityData.query.results.channel.item.forecast;
 
 		forecast.map((day) => {
-			if (day.code >= 0 && day.code <= 4) {
+			if ((day.code >= 0 && day.code <= 4) || (day.code >= 37 && day.code <= 39) || (day.code >= 44 && day.code <= 47)) {
   			day["image"] = 'https://openclipart.org/image/2400px/svg_to_png/30163/weather-storm.png';
-  		} else if ((day.code >= 5 && day.code <= 10)|| (day.code >= 13 && day.code <= 17)) {
+  		} else if ((day.code >= 5 && day.code <= 7)|| (day.code >= 13 && day.code <= 18) || (day.code >= 41 && day.code <= 43)) {
 				day["image"] = 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Snow.svg/1024px-Snow.svg.png';
-  		// } else if (day.code >= 0 && day.code <= 4) {
-				// day["image"] = 'http://icons.iconarchive.com/icons/large-icons/large-weather/512/partly-cloudy-day-icon.png';
-  		// }	else if (day.code >= 0 && day.code <= 4) {
-				// day["image"] = 'http://icons.iconarchive.com/icons/large-icons/large-weather/512/partly-cloudy-day-icon.png';
+  		} else if (day.code >= 8 && day.code <= 12) {
+				day["image"] = 'http://icons.iconarchive.com/icons/jaan-jaak/weather/512/rain-icon.png';
+  		}	else if (day.code >= 19 && day.code <= 30) {
+				day["image"] = 'http://www.newdesignfile.com/postpic/2009/10/cartoon-of-cloudy-weather-icons_79061.png';
+  		} else if (day.code >= 31 && day.code <= 36) {
+				day["image"] = 'http://icons.iconarchive.com/icons/icons-land/weather/256/Sunny-icon.png';
   		} else {
 				day["image"] = 'http://icons.iconarchive.com/icons/large-icons/large-weather/512/partly-cloudy-day-icon.png';
   		}
 		});
 		
-		console.log(forecast);
+		// console.log(forecast);
 
 		return (
 			<div key={name}>
