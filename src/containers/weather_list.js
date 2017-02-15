@@ -24,12 +24,16 @@ class WeatherList extends Component {
 		const forecast = cityData.query.results.channel.item.forecast;
 
 		forecast.map((day) => {
-			if (day.text.includes("Cloudy")) {
-  			day["image"] = 'http://icons.iconarchive.com/icons/large-icons/large-weather/512/partly-cloudy-day-icon.png';
-  		} else if (day.text === "Showers") {
-				day["image"] = 'http://icons.iconarchive.com/icons/large-icons/large-weather/512/partly-cloudy-day-icon.png';
+			if (day.code >= 0 && day.code <= 4) {
+  			day["image"] = 'https://openclipart.org/image/2400px/svg_to_png/30163/weather-storm.png';
+  		} else if ((day.code >= 5 && day.code <= 10)|| (day.code >= 13 && day.code <= 17)) {
+				day["image"] = 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Snow.svg/1024px-Snow.svg.png';
+  		// } else if (day.code >= 0 && day.code <= 4) {
+				// day["image"] = 'http://icons.iconarchive.com/icons/large-icons/large-weather/512/partly-cloudy-day-icon.png';
+  		// }	else if (day.code >= 0 && day.code <= 4) {
+				// day["image"] = 'http://icons.iconarchive.com/icons/large-icons/large-weather/512/partly-cloudy-day-icon.png';
   		} else {
-				day["image"] = 'http://www.vectorcopy.com/images/big/1-5000/80.jpg';
+				day["image"] = 'http://icons.iconarchive.com/icons/large-icons/large-weather/512/partly-cloudy-day-icon.png';
   		}
 		});
 		
