@@ -5,24 +5,13 @@
 Welcome to Weather with Redux!
 
 ###Technology Stack###
-ReactJS
-Redux
-ES6
-Yahoo Weather API
-Redux Promise (as Middleware)
-React-Bootstrap
-Material UI
-
-
-####Familiar with Git?#####
-Checkout this repo, install dependencies, then start the gulp process with the following:
-
-```
-	> git clone https://github.com/KelvinLightner/Weather-with-Redux.git
-	> cd Weather-with-Redux
-	> npm install
-	> npm start
-```
+ReactJS | 
+Redux | 
+ES6 | 
+Yahoo Weather API | 
+Redux Promise (as Middleware) | 
+React-Bootstrap | 
+Material UI 
 
 ####Concepts Notes#####
 Controlled Component(Button) - a form element where the value of the input is set by the state of our component. Please reference the search bar component.
