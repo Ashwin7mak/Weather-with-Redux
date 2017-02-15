@@ -6,10 +6,13 @@ class WeatherList extends Component {
 		const name = cityData.query.results.channel.location.city;
 
 		const dates = cityData.query.results.channel.item.forecast.map(weather => weather.date);
-		const low_temps = cityData.query.results.channel.item.forecast.map(weather => weather.low);
-		const high_temps = cityData.query.results.channel.item.forecast.map(weather => weather.high);
+		const lowTemps = cityData.query.results.channel.item.forecast.map(weather => weather.low);
+		const highTemps = cityData.query.results.channel.item.forecast.map(weather => weather.high);
+		const descriptions = cityData.query.results.channel.item.forecast.map(weather => weather.text);
 
-		console.log(low_temps);
+		
+		console.log(descriptions);
+
 		return (
 			<tr key={name}>
 				<td>{name}</td>
@@ -25,8 +28,6 @@ class WeatherList extends Component {
 						<th>City</th>
 						<th>Low Temperature</th>
 						<th>High Temperature</th>
-						<th>Pressure</th>
-						<th>Humidity</th>
 					</tr>
 				</thead>
 				<tbody>
